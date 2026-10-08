@@ -39,8 +39,12 @@
 
       <section class="coluna">
         <div class="campo">
-          <label for="imagemInput">Imagem</label>
-          <input type="file" id="imagemInput" accept="image/*">
+          <span class="rotulo">Imagem</span>
+          <label class="soltar" id="areaSoltar" for="imagemInput">
+            <input type="file" id="imagemInput" accept="image/*">
+            <span class="soltar-titulo" id="soltarTitulo">Arraste uma imagem para cá</span>
+            <span class="soltar-dica" id="soltarDica">ou clique para escolher do computador</span>
+          </label>
         </div>
 
         <canvas id="canvasPreview" width="0" height="0"></canvas>
@@ -63,6 +67,46 @@
       </section>
     </main>
   </div>
+
+
+  <script>
+    (function () {
+      var area = document.getElementById("areaSoltar");
+      var input = document.getElementById("imagemInput");
+      var titulo = document.getElementById("soltarTitulo");
+      var dica = document.getElementById("soltarDica");
+
+      function mostrarNome() {
+        if (input.files.length) {
+          titulo.textContent = input.files[0].name;
+          dica.textContent = "Clique ou arraste outra imagem para trocar";
+        }
+      }
+
+      ["dragenter", "dragover"].forEach(function (nome) {
+        area.addEventListener(nome, function (ev) {
+          ev.preventDefault();
+          area.classList.add("sobre");
+        });
+      });
+      ["dragleave", "drop"].forEach(function (nome) {
+        area.addEventListener(nome, function (ev) {
+          ev.preventDefault();
+          area.classList.remove("sobre");
+        });
+      });
+      area.addEventListener("drop", function (ev) {
+        var arquivo = ev.dataTransfer.files[0];
+        if (!arquivo || arquivo.type.indexOf("image/") !== 0) {
+          titulo.textContent = "Esse arquivo não é uma imagem";
+          return;
+        }
+        input.files = ev.dataTransfer.files;
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+      input.addEventListener("change", mostrarNome);
+    })();
+  </script>
 
   <script type="py" src="./main_estego.py" config='{"files": {"./esteganografia.py": "esteganografia.py"}}'></script>
 </body>

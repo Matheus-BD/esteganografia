@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sigilo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sigilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="pagina">
+  <div class="pagina">
     <header class="topo">
-        <a class="marca" href="index.html">Sigilo</a>
+      <a class="marca" href="index.html">Sigilo</a>
     </header>
 
     <section class="cabecalho">
-        <h1>Bem-vindo ao Sigilo</h1>
-        <p>Duas formas de guardar um segredo. Uma embaralha as letras de um texto. A outra esconde a mensagem dentro de uma imagem. Escolha por onde começar.</p>
+      <h1>Bem-vindo ao Sigilo</h1>
+      <p>Aqui você escreve mensagens secretas. Escolha uma das duas opções abaixo e clique nela para começar.</p>
     </section>
 
     <main class="opcoes">
-        <a class="opcao" href="cifra.html">
+      <a class="opcao" href="cifra.html">
         <h2>Cifra de César</h2>
-        <p>Troca cada letra por outra, a uma distância fixa no alfabeto. Quem não souber a chave só vê texto sem sentido.</p>
-        <div class="demo" aria-hidden="true">
-            <div class="demo-fileira"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
-            <div class="demo-fileira deslocada"><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
-            <small>Chave 3: A vira D</small>
-        </div>
-        </a>
+        <p>Troca as letras de um texto para que ninguém consiga ler. Só quem tem a chave entende.</p>
+        <span class="botao-opcao">Usar a cifra</span>
+      </a>
 
-        <a class="opcao" href="esteganografia.html">
+      <a class="opcao" href="esteganografia.html">
         <h2>Esteganografia</h2>
-        <p>Guarda a mensagem nos pixels de uma imagem. A foto parece a mesma, mas carrega um texto escondido.</p>
-        <div class="demo bits" aria-hidden="true">
-            <div class="demo-fileira"><span>0</span><span>1</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span class="ultimo">1</span></div>
-            <small>O último bit de cada cor guarda a mensagem</small>
-        </div>
-        </a>
+        <p>Esconde um texto dentro de uma imagem. Ela parece normal, mas guarda um segredo.</p>
+        <span class="botao-opcao">Esconder em imagem</span>
+      </a>
     </main>
-    </div>
+  </div>
 </body>
 </html>
