@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cifra de César · Sigilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+</head>
+<body>
+  <div class="pagina">
+    <header class="topo">
+      <a class="marca" href="index.html">Sigilo</a>
+      <a class="voltar" href="index.html">Voltar ao início</a>
+    </header>
+
+    <section class="cabecalho">
+      <h1>Cifra de César</h1>
+      <p>Codifique um texto com uma chave ou decodifique uma mensagem que você recebeu.</p>
+    </section>
+
+    <main class="ferramenta">
+      <section class="coluna">
+        <h2>O que é e como funciona</h2>
+        <p>Cada letra é trocada por outra que está a algumas posições de distância no alfabeto. Essa distância é a chave. Com chave 3, A vira D, B vira E e assim por diante.</p>
+        <p>Para decodificar, use a mesma chave no texto cifrado.</p>
+        <p class="aviso">Letras com acento e maiúsculas fazem parte do alfabeto. Espaços, números e pontuação não mudam.</p>
+      </section>
+
+      <section class="coluna">
+        <div class="campo">
+          <label for="texto">Texto</label>
+          <textarea id="texto" placeholder="Escreva ou cole o texto aqui"></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="chave">Chave</label>
+          <input type="number" id="chave" value="3">
+        </div>
+
+        <div class="botoes">
+          <button type="button" py-click="processar_codificar">Codificar</button>
+          <button type="button" class="secundario" py-click="processar_decodificar">Decodificar</button>
+        </div>
+      </section>
+
+      <section class="coluna">
+        <h2>Resultado</h2>
+        <div id="saida" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="py" src="./main_cifra.py" config='{"files": {"./cifra.py": "cifra.py"}}'></script>
+</body>
+</html>

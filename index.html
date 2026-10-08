@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esteganografia - Ocultar Mensagens em Imagens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sigilo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <header class="header">
-        <h1>Esteganografia</h1>
-        <p>Enconda mensagens secretas dentro de Imagens digitais</p>
+    <div class="pagina">
+    <header class="topo">
+        <a class="marca" href="index.html">Sigilo</a>
     </header>
 
-    <main class="main-container">
+    <section class="cabecalho">
+        <h1>Bem-vindo ao Sigilo</h1>
+        <p>Duas formas de guardar um segredo. Uma embaralha as letras de um texto. A outra esconde a mensagem dentro de uma imagem. Escolha por onde começar.</p>
+    </section>
 
-        <section class="card info-card">
-            <h2>O que é Esteganografia?</h2>
-            <p>
-                A esteganografia é a prática de ocultar uma mensagem, ficheiro ou imagem dentro de outra mensagem ou pmeio de comunicação visível.
-            </p>
-            <p>
-                <strong>Como funciona:</strong> Ao contrário da criptografia (que torna a mensagem ilegivel), a esteganografia esconde o fato da mensagem exitir. Neste site, utilizamos a técnica de alteração dos bits menos significativos (LBS) dos pixeis de uma imagem, modificando coisas impercetiveis ao olho humano.
-            </p>
-        </section>
+    <main class="opcoes">
+        <a class="opcao" href="cifra.html">
+        <h2>Cifra de César</h2>
+        <p>Troca cada letra por outra, a uma distância fixa no alfabeto. Quem não souber a chave só vê texto sem sentido.</p>
+        <div class="demo" aria-hidden="true">
+            <div class="demo-fileira"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
+            <div class="demo-fileira deslocada"><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
+            <small>Chave 3: A vira D</small>
+        </div>
+        </a>
 
-        
-
+        <a class="opcao" href="esteganografia.html">
+        <h2>Esteganografia</h2>
+        <p>Guarda a mensagem nos pixels de uma imagem. A foto parece a mesma, mas carrega um texto escondido.</p>
+        <div class="demo bits" aria-hidden="true">
+            <div class="demo-fileira"><span>0</span><span>1</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span class="ultimo">1</span></div>
+            <small>O último bit de cada cor guarda a mensagem</small>
+        </div>
+        </a>
     </main>
-
+    </div>
 </body>
-
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esteganografia · Sigilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+</head>
+<body>
+  <div class="pagina">
+    <header class="topo">
+      <a class="marca" href="index.html">Sigilo</a>
+      <a class="voltar" href="index.html">Voltar ao início</a>
+    </header>
+
+    <section class="cabecalho">
+      <h1>Esteganografia</h1>
+      <p>Esconda um texto dentro de uma imagem ou descubra o que uma imagem guarda.</p>
+    </section>
+
+    <main class="ferramenta">
+      <section class="coluna">
+        <h2>O que é e como funciona</h2>
+        <p>Cada pixel de uma imagem guarda três números: vermelho, verde e azul. O programa troca o último bit de cada um por um bit da mensagem. A mudança é pequena demais para o olho notar.</p>
+        <p>Para ler, o caminho é o inverso: os últimos bits são reunidos até formar o texto.</p>
+        <ol>
+          <li>Escolha uma imagem.</li>
+          <li>Escreva a mensagem e clique em Esconder.</li>
+          <li>Baixe o PNG gerado.</li>
+        </ol>
+        <p class="aviso">Para revelar, envie o PNG gerado e clique em Revelar. Não converta para JPG: a compressão apaga a mensagem.</p>
+      </section>
+
+      <section class="coluna">
+        <div class="campo">
+          <label for="imagemInput">Imagem</label>
+          <input type="file" id="imagemInput" accept="image/*">
+        </div>
+
+        <canvas id="canvasPreview" width="0" height="0"></canvas>
+
+        <div class="campo">
+          <label for="textoOculto">Mensagem para esconder</label>
+          <textarea id="textoOculto" placeholder="Escreva aqui o texto secreto"></textarea>
+        </div>
+
+        <div class="botoes">
+          <button type="button" py-click="processar_ocultar">Esconder</button>
+          <button type="button" class="secundario" py-click="processar_revelar">Revelar</button>
+        </div>
+      </section>
+
+      <section class="coluna">
+        <h2>Resultado</h2>
+        <div id="saida" aria-live="polite"></div>
+        <div id="downloadContainer"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="py" src="./main_estego.py" config='{"files": {"./esteganografia.py": "esteganografia.py"}}'></script>
+</body>
+</html>
